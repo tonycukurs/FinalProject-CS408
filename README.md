@@ -15,4 +15,4 @@ Some stretched goals that I have are that I want to be able to add a space backg
 
 
 
-![wireframe](wireframe-example.png)
+![wireframe](wireframe.png)
