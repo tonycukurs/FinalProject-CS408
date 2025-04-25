@@ -86,6 +86,7 @@ class Asteroid extends Shape {
         ship.alive = false;
         gameOver = true;
         para.textContent = 'Game Over! Score: ' + score;
+        showRecordScoreButton(); // Show the record score button
       }
     }
   }
@@ -331,10 +332,51 @@ function addNewAsteroid() {
   asteroids.push(createNewAsteroid());
 }
 
-// Add restart capability
+// Add this function after your other declarations
+function showRecordScoreButton() {
+  // Check if button already exists
+  if (document.querySelector('.record-score-button')) return;
+  
+  // Create button
+  const recordButton = document.createElement('button');
+  recordButton.textContent = 'Record score';
+  recordButton.classList.add('record-score-button');
+  
+  // Style the button
+  recordButton.style.position = 'absolute';
+  recordButton.style.top = '60%';
+  recordButton.style.left = '50%';
+  recordButton.style.transform = 'translate(-50%, -50%)';
+  recordButton.style.padding = '10px 20px';
+  recordButton.style.fontSize = '18px';
+  recordButton.style.cursor = 'pointer';
+  recordButton.style.backgroundColor = '#4CAF50';
+  recordButton.style.color = 'white';
+  recordButton.style.border = 'none';
+  recordButton.style.borderRadius = '5px';
+  
+  // Add click event to redirect to score.html with the score
+  recordButton.addEventListener('click', () => {
+    window.location.href = `score.html?score=${score}`;
+  });
+  
+  // Add to the document
+  document.body.appendChild(recordButton);
+}
+
+// Function to remove the button when restarting
+function removeRecordScoreButton() {
+  const button = document.querySelector('.record-score-button');
+  if (button) {
+    button.remove();
+  }
+}
+
+// Update the restart event listener to remove the button
 window.addEventListener('keydown', (e) => {
   if (gameOver && e.key === ' ') {
     gameOver = false;
+    removeRecordScoreButton(); // Remove button when restarting
     spaceship.alive = true;
     spaceship.x = width / 2;
     spaceship.y = height - 100;
@@ -356,3 +398,21 @@ window.addEventListener('keydown', (e) => {
 
 // Start the game
 loop();
+
+// Add this code to your main game JavaScript file
+
+/**
+ * Call this function when the game ends to save the score and redirect to the score page
+ * @param {number} finalScore - The player's final score
+ */
+function endGame(finalScore) {
+  // Save the score in localStorage
+  localStorage.setItem('lastGameScore', finalScore);
+  
+  // Redirect to the score page
+  window.location.href = 'score.html';
+}
+
+// Example usage:
+// When player loses all lives or game ends:
+// endGame(playerScore);

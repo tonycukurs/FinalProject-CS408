@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Test AWS Lambda</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/score.css">
+    <script type="module" src="js/score.js"></script>
+</head>
+
+
+<body>
+    <h1>ROOTIN TOOTIN SHOOTIN ASTEROIDS SCOREBOARD</h1>
+  
+
+    <button id="load-data">Load Data</button>
+
+   
+
+   <main class = "grid">
+    <hr>
+    <div class="item-form">
+        <h2>Add Score</h2>
+        <div class="form-group">
+            <label for="item-id">DATE:</label>
+            <input type="text" id="item-id" placeholder="Enter the date">
+        </div>
+        <div class="form-group">
+            <label for="item-name">NAME:</label>
+            <input type="text" id="item-name" placeholder="Enter item name">
+        </div>
+        <div class="form-group">
+            <label for="item-price">Score:</label>
+            <input type="number" id="item-price" placeholder="Enter your score">
+        </div>
+        <button id="send-data">Submit Score</button>
+       
+    </div>
+    <hr>
+    <p id="form-status"></p>
+    <p id="lambda-info">
+        <!-- loaded with AJAX -->
+    </p>
+    
+    <!-- Add table structure -->
+    <table id="inventory-table">
+        <thead>
+            <tr>
+                <th>DATE</th>
+                <th>NAME</th>
+                <th>SCORE</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody id="inventory-body">
+            <!-- Items will be loaded here -->
+        </tbody>
+    </table>
+
+</main>
+
+
+
+
+<!-- No inline script needed anymore, as it's been moved to main.js -->
+
+</body>
+
+</html>
