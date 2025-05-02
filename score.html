@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -15,18 +16,23 @@
 <body>
     <h1>ROOTIN TOOTIN SHOOTIN ASTEROIDS SCOREBOARD</h1>
   
+    <!-- Navigation buttons -->
+    <div class="navigation-buttons">
+        <a href="asteriods.html" class="nav-button">Play Game</a>
+        <a href="howtoplay.html" class="nav-button">How to Play</a>
+        <a href="menu.html" class="nav-button">Main Menu</a>
+    </div>
 
     <button id="load-data">Load Data</button>
-
-   
 
    <main class = "grid">
     <hr>
     <div class="item-form">
         <h2>Add Score</h2>
         <div class="form-group">
-            <label for="item-id">DATE:</label>
-            <input type="text" id="item-id" placeholder="Enter the date">
+            <label for="item-id">Date:</label>
+            <input type="text" id="item-id" placeholder="Enter date (use MM-DD-YYYY format)">
+            <small class="form-help">For dates, use hyphens (-) instead of slashes (/)</small>
         </div>
         <div class="form-group">
             <label for="item-name">NAME:</label>
@@ -61,11 +67,6 @@
     </table>
 
 </main>
-
-
-
-
-<!-- No inline script needed anymore, as it's been moved to main.js -->
 
 </body>
 
